@@ -48,6 +48,7 @@ char readKey () {
 			bcm2835_gpio_clr(columns[i]);					//Set this columns pin to low
 			for(j = 0; j < nrofrows; j++) {					//Loop over the rows
 				if(!bcm2835_gpio_lev(rows[j])) {			//Check if the signal for some row is low
+					bcm2835_gpio_set(columns[i]);
 					return(keys[j][i]);						//If so, return
 				}
 			}
@@ -56,10 +57,13 @@ char readKey () {
 	}
 }
 
-int main () {
+int main () { 
 	keySetup();
-	char c = readKey();
-	printf("%c", c);
+	while(1) {
+		char c = readKey();
+		printf("%c\n", c);
+		delay(500);
+	}
 	return 0;
 }
 
