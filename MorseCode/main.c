@@ -2,6 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 
+//							MorseCode
+//	This is a very simple program in C made for a Raspberry Pi 2 B.
+//	It assumes that there is 2 lights connected to GPIO pins 17 and
+//	18. The one on pin 17 is used for dots and dashes and the one 
+//	on pin 18 is used for signaling when a letter is finished and
+// 	another letter is about to follow. 
+
 //Define pin 11 (really GPIO pin 17) to be the one used for sending the dots and dashes
 #define PIN_SIGNAL RPI_GPIO_P1_11
 //Define pin 12 (really GPIO pin 18) to be the one for signaling a new letter is coming
